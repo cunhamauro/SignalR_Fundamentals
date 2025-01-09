@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SignalRtutorial.Data;
+using SignalRtutorial.Hubs;
 
 namespace SignalRtutorial
 {
@@ -19,6 +20,8 @@ namespace SignalRtutorial
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddSignalR();
 
             var app = builder.Build();
 
@@ -45,6 +48,8 @@ namespace SignalRtutorial
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
+
+            app.MapHub<UserHub>("/hubs/userCount");
 
             app.Run();
         }
