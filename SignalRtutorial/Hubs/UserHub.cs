@@ -22,12 +22,13 @@ namespace SignalRtutorial.Hubs
             return base.OnDisconnectedAsync(exception);
         }
 
-        public async Task NewWindowLoaded()
+        public async Task<string> NewWindowLoaded(string name)
         {
             TotalViews++;
 
             // Notify clients that the count was updated
             await Clients.All.SendAsync("updateTotalViews", TotalViews);
+            return $"TOTAL VIEWS FROM {name}: {TotalViews}";
         }
     }
 }

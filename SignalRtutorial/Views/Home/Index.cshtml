@@ -1,4 +1,10 @@
-﻿<div class="container">
+﻿@{
+    // string wand = SD.DeathlyHallowRace[SD.Wand].ToString();
+    // string stone = SD.DeathlyHallowRace[SD.Stone].ToString();
+    // string cloak = SD.DeathlyHallowRace[SD.Cloak].ToString();
+}
+
+<div class="container mb-3">
     <div class="row">
         <div class="col-3">TOTAL VIEWS:</div>
         <div class="col-4">
@@ -13,5 +19,25 @@
     </div>
 </div>
 
+<div class="row border p-1">
+    <h3>Deathly Hallow Race</h3>
+    <div class="col-4">
+        <div>Elder Wand - <span id="wandCounter">@* @wand *@</span></div>
+    </div>
+    <div class="col-4">
+        <div>Ressurection Stone - <span id="stoneCounter">@* @stone *@</span></div>
+    </div>
+    <div class="col-4">
+        <div>Invisibility Cloak - <span id="cloakCounter">@* @cloak *@</span></div>
+    </div>
+
+    <hr />
+    <p>URL TO VOTE:</p>
+    <div><a href="https://localhost:7001/Home/DeathlyHallows?type=wand" target="_blank">1. Elder Wand</a></div>
+    <div><a href="https://localhost:7001/Home/DeathlyHallows?type=stone" target="_blank">2. Ressurection Stone</a></div>
+    <div><a href="https://localhost:7001/Home/DeathlyHallows?type=cloak" target="_blank">3. Invisibility Cloak</a></div>
+</div>
+
 <script src="~/js/signalr.js"></script>
 <script src="~/js/usersCount.js"></script>
+<script src="~/js/deathlyHallows.js"></script>
